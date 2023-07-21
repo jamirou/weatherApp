@@ -1,6 +1,3 @@
-#content {
-    background-color: aquamarine;
-}
 
 .weather-description {
     font-size: 32px;
@@ -8,3 +5,57 @@
     color: green;
   
 }   
+#content {
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0e8e8; /* Color de fondo pastel */
+    color: #333; /* Color de fuente principal */
+}
+
+#content {
+    background-color: #c7e6c3; /* Color de fondo pastel para el contenido */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.weather-description {
+    font-size: 32px;
+    font-weight: bold;
+    color: #4a90e2; /* Color de fuente pastel para la descripción del clima */
+}
+#weather-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#weather-description {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a90e2; /* Color de fuente pastel para la descripción del clima */
+}
+
+#temperature {
+    font-size: 32px;
+    color: #333; /* Color de fuente principal */
+}
+
+.weather-icon {
+    display: block;
+    margin: 20px auto;
+    width: 100px;
+    height: 100px;
+}
