@@ -4,7 +4,12 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+app.set("view engine", "ejs");
+// Directorio de vistas
+app.set("views", __dirname + "/views");
 app.use(express.static("public"));
+
+// Middleware: Permite analizar el contenido de las solicitudes con codificación URL
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", function (req, res) {
@@ -14,6 +19,7 @@ app.get("/", function (req, res) {
 app.post("/", function (req, res) {
   const query = req.body.cityName;
   console.log(query);
+  // Clave de API proporcionada por OpenWeatherMap para realizar las consultas
   const apiKey = "251299f117789673cd2623949016182d";
   const unit = "metric";
   const url =
@@ -23,38 +29,36 @@ app.post("/", function (req, res) {
     apiKey +
     "&units=" +
     unit;
+
+  // Realiza una solicitud GET a la API de OpenWeatherMap
   https.get(url, function (response) {
     console.log(response.statusCode);
 
-    response.on("data", function (data) {
-      const weatherData = JSON.parse(data);
-      const temp = weatherData.main.temp;
-      const weatherDescription = weatherData.weather[0].description;
-      const icon = weatherData.weather[0].icon;
-      const imgURL =
-        "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+    if (response.statusCode === 200) {
+      response.on("data", function (data) {
+        const weatherData = JSON.parse(data);
+        const temp = weatherData.main.temp;
+        const weatherDescription = weatherData.weather[0].description;
+        const icon = weatherData.weather[0].icon;
+        const imgURL =
+          "http://openweathermap.org/img/wn/" + icon + "@2x.png";
 
-      res.write('<head><meta charset="utf-8"></head>');
-      res.write(
-        "<div id='weather-info'>" +
-          "<h2 class='weather-description'>The weather is currently " +
-          weatherDescription +
-          "</h2>" +
-          "<h1>The temperature in " +
-          query +
-          " is " +
-          temp +
-          " degrees Celsius</h1>" +
-          "<img src=" +
-          imgURL +
-          ">" +
-          "</div>"
-      );
-      res.send();
-    });
+        // Enviar la respuesta usando la plantilla EJS y pasando los datos del clima
+        res.render("weather", {
+          cityName: query,
+          weatherDescription: weatherDescription,
+          temperature: temp,
+          imgURL: imgURL,
+        });
+      });
+    } else {
+      // Respuesta adicional en caso de que no se encuentre el país o ciudad
+      const errorMessage = `Sorry, I couldn't find "${query}" in my database 🥲`;
+      res.render("error", { errorMessage: errorMessage });
+    }
   });
 });
 
 app.listen(3000, function () {
-  console.log("Your server is running on in port 3000");
+  console.log("Your server is running on port 3000");
 });

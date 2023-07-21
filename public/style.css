@@ -1,19 +1,18 @@
-
-.weather-description {
-    font-size: 32px;
-    font-weight: bold;
-    color: green;
-  
-}   
+#container {
+    background-color: #C5DFF8;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #content {
-    background-color: aquamarine;
+    background-color: #7895CB;
+    padding: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
 }
-
 form {
     display: flex;
     flex-direction: column;
@@ -21,41 +20,38 @@ form {
 }
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0e8e8; /* Color de fondo pastel */
     color: #333; /* Color de fuente principal */
-}
-
-#content {
-    background-color: #c7e6c3; /* Color de fondo pastel para el contenido */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .weather-description {
-    font-size: 32px;
-    font-weight: bold;
-    color: #4a90e2; /* Color de fuente pastel para la descripción del clima */
-}
-#weather-info {
-    margin-top: 20px;
-    text-align: center;
-}
-
-#weather-description {
+    color: #3E001F;
     font-size: 24px;
     font-weight: bold;
-    color: #4a90e2; /* Color de fuente pastel para la descripción del clima */
 }
 
 #temperature {
-    font-size: 32px;
-    color: #333; /* Color de fuente principal */
+    color: #333;
+    font-size: 48px;
+    font-weight: bold;
 }
 
-.weather-icon {
-    display: block;
-    margin: 20px auto;
+#weather-icon {
     width: 100px;
     height: 100px;
+    margin-top: 20px;
+    margin-left: 95px;
+}
+
+footer {
+    background-color: #7895CB;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    font-size: 14px;
+    color: #2D4356;
 }
