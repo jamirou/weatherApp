@@ -20,7 +20,7 @@ app.post("/", function (req, res) {
   const query = req.body.cityName;
   console.log(query);
   // Clave de API proporcionada por OpenWeatherMap para realizar las consultas
-  const apiKey = "251299f117789673cd2623949016182d";
+  const apiKey = "";
   const unit = "metric";
   const url =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
