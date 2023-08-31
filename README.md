@@ -1,8 +1,9 @@
 # Weather App 
 
+La Weather App es una aplicación web que te permite obtener información sobre el clima de una ciudad específica. Puedes ingresar el nombre de la ciudad en el formulario de búsqueda y la aplicación te mostrará la temperatura actual y una descripción del clima en esa ciudad, junto con un ícono que representa las condiciones climáticas.
+
 ![Weather App](captura.png)
 
-La Weather App es una aplicación web que te permite obtener información sobre el clima de una ciudad específica. Puedes ingresar el nombre de la ciudad en el formulario de búsqueda y la aplicación te mostrará la temperatura actual y una descripción del clima en esa ciudad, junto con un ícono que representa las condiciones climáticas.
 
 ## Tecnologías utilizadas
 
